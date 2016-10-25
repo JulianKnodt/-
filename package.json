@@ -1,0 +1,23 @@
+{
+  "name": "musubi",
+  "version": "0.0.1",
+  "description": "Social media gamification app",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianKnodt/musubi.git"
+  },
+  "keywords": [
+    "social",
+    "media"
+  ],
+  "author": "Julian Knodt <julianknodt@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JulianKnodt/musubi/issues"
+  },
+  "homepage": "https://github.com/JulianKnodt/musubi#readme"
+}
