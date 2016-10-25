@@ -1,4 +1,4 @@
-# Musubi /　結び
+# Connect / Musubi /　結び
 
 Social Media intended to gamify connecting people, and help people meet others
 online.
@@ -24,6 +24,7 @@ online.
 * [Twitter Bootstrap] - Twitter's Responsive CSS Library
 * [Webpack](https://webpack.github.io/) - Bundler for deployment and makes it easy to reference files client-side
 * [Babel](https://babeljs.io/) - Transpiler for es6 for react
+
 ##### Server-Side
 * [Express] - fast node.js network app framework [@tjholowaychuk]
 * [node.js] - evented I/O for the backend
@@ -35,7 +36,8 @@ online.
 * Unsure
 * [postgresQL](https://www.postgresql.org/) - for storing user data
 * GraphDB
-* NewSql???
+* NewSql
+* [Redis](http://redis.io/) - for generating keys for users to put into client
 
 ##### Other
 * [Dillinger][dill] - Cool online markdown editor for this readme
