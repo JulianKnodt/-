@@ -38,7 +38,6 @@ online.
 * GraphDB
 * NewSql
 * [Redis](http://redis.io/) - for generating keys for users to put into client
-![Schemas]()
 
 ##### Other
 * [Dillinger][dill] - Cool online markdown editor for this readme
@@ -46,11 +45,13 @@ online.
 
 ##### Front End
 * None Yet
+
 ##### Server-Side
 * None Yet
 
 ##### Database
 * None Yet
+
 ##### Other
 * [Dillinger][dill] - Cool online markdown editor for this readme
  
