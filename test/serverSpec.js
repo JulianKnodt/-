@@ -62,7 +62,6 @@ describe('Server endpoints', function() {
               .type('json')
               .send(JSON.stringify({email: 'test@testmail.com', password: 'testy'}))
               .expect((res) => {
-                // console.log(res.user);
                 assert(Boolean(res.headers['set-cookie']), true);
               })
               .expect(202, done);
@@ -89,5 +88,35 @@ describe('Server endpoints', function() {
     });
 
     //AUTH ENDPOINT TESTS END-------------------
+  });
+
+  describe('/match endpoint', function() {
+    before(function() {
+      baseUrl += 'match';
+    });
+    after(function() {
+      baseUrl = baseUrl.slice(0, 'match'.length);
+      manualController.deleteUserRaw('test@testmail.com', console.log);
+    });
+    describe('/match/new', function() {
+      before(function() {
+        baseUrl += '/new';
+      });
+      after(function() {
+        baseUrl = baseUrl.slice(0, '/new'.length);
+      });
+      it('should create a new match with an authenticated user', function(done) {
+        const sampleBody = JSON.stringify({age: 18, age})
+        request(server)
+              .post('/auth/signup')
+              .type('json')
+              .send(JSON.stringify({email: 'test@testmail.com', password: 'test'}))
+              .expect(202, done);
+        request(server)
+              .post(baseUrl)
+              .type('json')
+              .send()
+      });
+    })
   });
 });

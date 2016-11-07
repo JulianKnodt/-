@@ -5,6 +5,7 @@ const expressSession = require('express-session');
 
 const authRouter = require('./routers/authRouter');
 const codeRouter = require('./routers/codeRouter');
+const matchRouter = require('./routers/matchRouter');
 const db = require('./db/dbConnection.js');
 
 var app = express();
@@ -26,9 +27,7 @@ app.set('title', 'Ito');
 
 app.use('/auth', authRouter);
 app.use('/code', codeRouter);
-app.get('/', (req, res) => {
-  res.sendStatus(202);
-});
+app.use('/match', matchRouter);
 
 var server = app.listen(port, () => {
   process.stdout.write(`Listening on port ${port}\n`);

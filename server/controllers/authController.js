@@ -39,6 +39,10 @@ const authFunctions = {
         }
       });
     },
+    logout: (req, res) => {
+      req.logout();
+      res.redirect('/');
+    },
     oauth: (req, res) => {
       //TODO
     }
