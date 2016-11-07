@@ -6,7 +6,9 @@ const assert = require('assert');
 let baseUrl = '/';
 
 describe('Server endpoints', function() {
-
+  after(function(done) {
+    server.close(done);
+  });
   // Auth Endpoint tests start ------------
   describe('/auth endpoint', function() {
 
@@ -60,8 +62,8 @@ describe('Server endpoints', function() {
         request(server)
               .post(baseUrl)
               .type('json')
-              .send(JSON.stringify({email: 'test@testmail.com', password: 'testy'}))
-              .expect((res) => {
+              .send(JSON.stringify({email: 'test@testmail.com', password: 'test'}))
+              .expect(res => {
                 assert(Boolean(res.headers['set-cookie']), true);
               })
               .expect(202, done);
@@ -82,11 +84,6 @@ describe('Server endpoints', function() {
               .expect(401, done);
       });
     });
-
-    after(function(done) {
-      server.close(done);
-    });
-
     //AUTH ENDPOINT TESTS END-------------------
   });
 
@@ -106,16 +103,15 @@ describe('Server endpoints', function() {
         baseUrl = baseUrl.slice(0, '/new'.length);
       });
       it('should create a new match with an authenticated user', function(done) {
-        const sampleBody = JSON.stringify({age: 18, age})
-        request(server)
-              .post('/auth/signup')
-              .type('json')
-              .send(JSON.stringify({email: 'test@testmail.com', password: 'test'}))
-              .expect(202, done);
+        const sampleBody = JSON.stringify({age: 18, gender: 'MALE'});
         request(server)
               .post(baseUrl)
               .type('json')
-              .send()
+              .send(sampleBody)
+              .expect(res => {
+                console.log(res);
+                done();
+              });
       });
     })
   });

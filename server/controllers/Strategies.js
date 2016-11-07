@@ -4,10 +4,12 @@ const dbController = require('../db/dbController');
 let strategies = {
   init: (passport) => {
     passport.serializeUser((user, done) => {
+      console.log(user);
       done(null, user);
     });
     passport.deserializeUser((user, done) => {
       dbController.findUserById(user, (res) => {
+        console.log(user, res);
         if(res instanceof Error) {
           done(res, null);
         } else if(res.rows.length > 0){
